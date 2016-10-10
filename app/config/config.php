@@ -19,7 +19,7 @@ define('ROOT_ERROR', dirname(dirname(dirname(__FILE__))).'/Errors/');
 define('ROOT_CONFIG', dirname(dirname(__FILE__)).'/config/');
 define('ROOT_MODULES',dirname(dirname(__FILE__)).'/modules/');
 define('SITEID','939D49BBCD1EA969A7AC142338A8EF2207627B8C');
-define('SITEURL', '//'.$_SERVER['HTTP_HOST'].'/allsport/');
+define('SITEURL', '//'.filter_input(INPUT_SERVER,'HTTP_HOST').'/allsport/');
 define('ASSETS', SITEURL.'assets/');
 define('DB_HOST', 'localhost');
 define('DB_USERNAME', 'phpmyadmin');
