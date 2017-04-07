@@ -50,8 +50,8 @@
 	 Product slider carousel
 	--------------------- */
 	$("#product-slider, #product-slider-two, #product-slider-women, #product-slider-kids, #blog-carousel, #singleproduct-slider").owlCarousel({
-		items : 3,
-		itemsDesktop: [1199,3],
+		items : 4,
+		itemsDesktop: [1199,4],
 		itemsDesktopSmall:[979,2],
 		itemsTablet: [768,2],
 		itemsMobile: [750,1],

@@ -1,35 +1,41 @@
 <?php 
 /**
-* Customer
+* Profil dan Kebijakan
 */
 class Profil extends Base
-{	
-	function __construct()
+{
+	public function index()
 	{
-		parent::__construct();
+		$data['title_page'] = 'Profil Toko';
+		$data['dataprofil'] = $this->mdataprofil();
+		$data['session'] = isset($_SESSION['username']);
+		$data['masterkategori'] = $this->masterKategoriProduk();
+		$data['items'] = $this->itemcart();
+			$data['masterproduk'] = $this->masterProduk();
+		$this->render->view('web/profil/index.profil',$data);				
 	}
 
-	public function profil()
+	/*
+	* Kebijakan dan privasi
+	*/
+	public function kebijakan()
 	{
-		// echo 'profil';
-		/*assign variable*/
-		$data['namatoko'] = $this->siteinfo('nama');
-		$data['tahuntoko'] = $this->siteinfo('tahun');
-		$data['title_page'] = 'Administrator';
-		$data['halaman'] = (!empty($_GET['act'])) ? ucfirst($_GET['act']) : '';
-		extract($data);
-		include ROOT_VIEW.'admin/profil/index.profil.php';
-	}
+		$data['title_page'] = 'Bantuan';
+		$data['dataprofil'] = $this->mdataprofil();
+		$data['session'] = isset($_SESSION['username']);
+		$data['masterkategori'] = $this->masterKategoriProduk();
+		$data['items'] = $this->itemcart();
+			$data['masterproduk'] = $this->masterProduk();
+		$this->render->view('web/profil/index.kebijakan',$data);			
+	}	
 
-	public function infokebijakan()
+	/*
+	* Ambil data
+	*/
+	public function mdataprofil()
 	{
-		/*assign variable*/
-		$data['namatoko'] = $this->siteinfo('nama');
-		$data['tahuntoko'] = $this->siteinfo('tahun');
-		$data['title_page'] = 'Administrator';
-		$data['halaman'] = 'Informasi & Kebijakan';
-		extract($data);
-		include ROOT_VIEW.'admin/profil/index.kebijakan.php';
-	}
+		$sql = "SELECT * FROM profil WHERE aktif='Y' LIMIT 1";
+		return $this->db->get_data($sql);
 
+	}
 }
