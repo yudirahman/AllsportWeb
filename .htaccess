@@ -1,0 +1,19 @@
+RewriteEngine On
+
+RewriteRule ^$ index.php?url=home
+RewriteRule ^([a-zA-Z]+)$ index.php?url=$1
+RewriteRule ^([a-zA-Z]+)/$ index.php?url=$1
+
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ index.php?url=$1&page=$2
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/$ index.php?url=$1&page=$2
+
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ index.php?url=$1&page=$2&act=$3
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/$ index.php?url=$1&page=$2&act=$3
+
+#search
+RewriteRule search/index/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ index.php?url=search&page=index&k=$1&q=$2
+RewriteRule search/index/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/$ index.php?url=search&page=index&k=$1&q=$2
+
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ index.php?url=$1&page=$2&act=$3&params=$4
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/$ index.php?url=$1&page=$2&act=$3&params=$4
+
